@@ -9,7 +9,6 @@ comma := ,
 BUILDDIR = _build
 COMPILER = xelatex
 BIBCOMPILER = biber
-PROJECT = cv
 BIBLIOGRAPHY = bibliography
 
 pdf: headon clean
@@ -18,16 +17,17 @@ pdf: headon clean
 	@mkdir -p $(BUILDDIR)
 	@$(COMPILER) -interaction=nonstopmode -halt-on-error -output-directory=$(BUILDDIR) $(PROJECT).tex
 	@echo "First pass (via $(COMPILER)) done!"
+ifeq ($(PROJECT), "cv")
 	@cp $(BIBLIOGRAPHY).bib $(BUILDDIR)
 	@$(BIBCOMPILER) --output_directory=$(BUILDDIR) $(PROJECT)
 	@echo "Second pass (via $(BIBCOMPILER)) done!"
+endif
 	@$(COMPILER) -interaction=nonstopmode -halt-on-error -output-directory=$(BUILDDIR) $(PROJECT).tex
 	@echo "Third pass (via $(COMPILER)) done!"
 	@$(COMPILER) -interaction=nonstopmode -halt-on-error -output-directory=$(BUILDDIR) $(PROJECT).tex
 	@echo "Last pass (via $(COMPILER)) done!"
 	@cp $(BUILDDIR)/$(PROJECT).pdf $(PROJECT)-$(subst $(comma),-,$(strip $(DOCOPTIONS))).pdf
 	@echo "Compilation done. Output file is $(PROJECT)-$(subst $(comma),-,$(strip $(DOCOPTIONS))).pdf"
-
 
 headon:
 ifneq ($(OPTIN),)
@@ -36,22 +36,27 @@ endif
 	@echo "\documentclass[$(DOCOPTIONS)]{friggeri-cv}" > .head
 
 a4pdf:
-	$(MAKE) headon OPTIN=a4pdf 
-	$(MAKE) pdf DOCOPTIONS=$(DOCOPTIONS),a4pdf 
+	$(MAKE) headon OPTIN=a4pdf
+	$(MAKE) default DOCOPTIONS=$(DOCOPTIONS),a4pdf
 
-nocolors:  
+nocolors:
 	$(MAKE) headon OPTIN=nocolors
-	$(MAKE) pdf DOCOPTIONS=$(DOCOPTIONS),print
+	$(MAKE) default DOCOPTIONS=$(DOCOPTIONS),nocolors
 
-print: 
-	$(MAKE) headon OPTIN=print 
-	$(MAKE) pdf DOCOPTIONS=$(DOCOPTIONS),print
+print:
+	$(MAKE) headon OPTIN=print
+	$(MAKE) default DOCOPTIONS=$(DOCOPTIONS),print
 
-custom: pdf 
-	
+custom: pdf
 
-default: pdf
-	
+cv: 
+	$(MAKE) pdf PROJECT=cv
+
+coverletter: 
+	$(MAKE) pdf PROJECT=coverletter
+
+default: cv coverletter
+
 
 clean:
 	@rm -rf $(BUILDDIR)
