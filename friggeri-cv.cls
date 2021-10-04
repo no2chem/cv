@@ -160,7 +160,7 @@ BoldItalicFont=\@cv@fontface-BoldIt.otf
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead{}
-\fancyfoot[R]{\makebox[6in][r]{\small \textbf{Michael Wei - Cirriculum Vitae} Built \DTMnow, latest: \url{http://wei.systems/cv.pdf}}}
+\fancyfoot[R]{\makebox[6in][r]{\small \textbf{Michael Wei - Cirriculum Vitae} Built \DTMnow, latest: \url{http://wei.systems/cv}}}
 \fancyfoot[C]{\small }
 \fancyfoot[L]{\small Page \thepage~of \pageref{LastPage}}
 
