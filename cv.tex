@@ -28,6 +28,19 @@
 \input{.head}
 % This \input{.head} can be replaced by \documentclass[]{friggeri-cv} in your personal document.
 
+\directlua0{
+  pdf.setinfo (
+     table.concat (
+        {
+           "/Title (Michael Wei's Curriculum Vitae)",
+           "/Author (Michael Wei)",
+           "/Subject (Michael Wei)",
+           "/Keywords (Michael Wei full-stack systems researcher hardware programming languages computer architecture operating systems distributed protocols clocks blockchains)"
+        }, " "
+     )
+  )
+}% End of \directlua
+
 \addbibresource{bibliography.bib} % Specify the bibliography file to include publications
 
 \begin{document}
