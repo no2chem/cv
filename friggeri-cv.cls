@@ -1,21 +1,7 @@
 \ProvidesClass{friggeri-cv}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
-\DeclareOption{heros}{
-  \def\@cv@fontface{texgyreheros}
-}
-\DeclareOption{alegreya}{
-    \def\@cv@fontface{AlegreyaSans}
-}
-\DeclareOption{merriweather}{
-    \def\@cv@fontface{MerriweatherSans}
-}
-\DeclareOption{nunito}{
-    \def\@cv@fontface{Nunito}
-}
-\DeclareOption{roboto}{
-    \def\@cv@fontface{Roboto}
-}
+\def\@cv@fontface{SourceSans3}
 
 \DeclareOption{nocolors}{\def\@cv@nocolors{}}
 \DeclareOption{print}{\def\@cv@print{}}
@@ -109,31 +95,32 @@
 
 \newfontfamily\bodyfont
 [Path=fonts/\@cv@fontface/,
-BoldFont=\@cv@fontface-Bold.ttf,
-ItalicFont=\@cv@fontface-Italic.ttf,
-BoldItalicFont=\@cv@fontface-BoldItalic.ttf]
-{\@cv@fontface-Regular.ttf}
-\newfontfamily\thinfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Light.ttf}
-\newfontfamily\headingfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Bold.ttf}
+BoldFont=\@cv@fontface-Bold.otf,
+ItalicFont=\@cv@fontface-It.otf,
+BoldItalicFont=\@cv@fontface-BoldIt.otf]
+{\@cv@fontface-Regular.otf}
+\newfontfamily\thinfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Light.otf}
+\newfontfamily\headingfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Bold.otf}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont
 [Mapping=tex-text, Color=textcolor,
 Path=fonts/\@cv@fontface/,
-BoldFont=\@cv@fontface-Bold.ttf,
-ItalicFont=\@cv@fontface-Italic.ttf,
-BoldItalicFont=\@cv@fontface-BoldItalic.ttf
+BoldFont=\@cv@fontface-Bold.otf,
+ItalicFont=\@cv@fontface-It.otf,
+BoldItalicFont=\@cv@fontface-BoldIt.otf
 ]
-{\@cv@fontface-Regular.ttf}
+{\@cv@fontface-Regular.otf}
 
-\setmathfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Regular.ttf}
+\setmathfont[Path=fonts/\@cv@fontface/]{\@cv@fontface-Regular.otf}
+
 %%%
-
 %%%%%%%%%%
 % Header %
 %%%%%%%%%%
 
 \RequirePackage{tikz}
+\usetikzlibrary{positioning}
 
 \newcommand{\rolefont}{%
   \fontsize{14pt}{24pt}\selectfont%
@@ -144,19 +131,38 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
+    \node [anchor=west, pos=0.3in] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
-      {\thinfont #1}{\bodyfont  #2}
-    };
-    \node [anchor=north] at (name.south) {%
-      \fontsize{14pt}{24pt}\color{header}%
+      {\thinfont #1}~~{\bodyfont  #2}~~~~~
+      \\
+      \fontsize{14pt}{20pt}\color{header}%
       \thinfont #3%
     };
+
+    \node [rectangle,left=1in of box.east] (contact) {%
+    %\parbox[]{1in}{test}
+    %\parbox[]{1in}{test2}
+    \fontsize{10pt}{10pt}\color{header}%
+    \thinfont 
+    \begin{tabular}{r} \faPhone~\href{dial:+1-626-367-3677}{+1 626-367-3677} \\ \faEnvelopeO~~\href{mailto:michael@wei.systems}{michael@wei.systems} \\ \faHome~\href{http://wei.systems}{http://wei.systems} \\ \faGithub~\href{https://www.github.com/no2chem}{no2chem} \end{tabular}
+  };
+
   \end{tikzpicture}
   \vspace{2.5cm}
   \vspace{-2\parskip}
 }
 
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{datetime2}
+\DTMsetdatestyle{iso}
+%\DTMsetstyle{iso}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot[R]{\makebox[6in][r]{\small \textbf{Michael Wei - Cirriculum Vitae} Built \DTMnow, latest: \url{http://wei.systems/cv.pdf}}}
+\fancyfoot[C]{\small }
+\fancyfoot[L]{\small Page \thepage~of \pageref{LastPage}}
 
 %%%%%%%%%%%%%
 % Structure %
@@ -164,7 +170,7 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
 \RequirePackage{parskip}
 
 \newcounter{colorCounter}
-\def\@sectioncolor#1#2#3{%
+\def\@sectioncolor#1{%
   {%
     \color{%
       \ifcase\value{colorCounter}%
@@ -178,7 +184,7 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
         friggeribrickred\or%
         friggerisepia\else%
         headercolor\fi%
-    } #1#2#3%
+    } #1%
   }%
   \stepcounter{colorCounter}%
 }
@@ -200,7 +206,7 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
   \par\vspace{.25\parskip}%
 }
 
-\pagestyle{empty}
+%\pagestyle{empty}
 
 
 %%%%%%%%%%%%%%%%%%%%
@@ -220,39 +226,30 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
-\newcommand{\courseentry}[6]{%
+\newcommand{\courseentry}[5]{%
   #1&\parbox[t]{11.8cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}}\\%
-  \multicolumn{1}{r}{\footnotesize Thesis}&\parbox[t]{11.8cm}{#5}\\%
-  \multicolumn{1}{r}{\footnotesize Coursework}&\parbox[t]{11.8cm}{{\footnotesize #6}%
-  \vspace{\parsep}}\\}
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+  }\\%}
+    \multicolumn{1}{r}{}&\parbox[t]{11.8cm}{#4}\\%
+   \multicolumn{1}{r}{}&\parbox[t]{11.8cm}{#5}\\}%
+  % \multicolumn{1}{r}{\footnotesize Coursework}&\parbox[t]{11.8cm}{{\footnotesize #6}%
+ % \vspace{\parsep}}\\}
 
-%%%%%%%%%%%%%%
-% Side block %
-%%%%%%%%%%%%%%
+  %
 
-\RequirePackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1cm}
-\setlength{\TPVertModule}{1cm}
-\newenvironment{aside}{%
-  \let\oldsection\section
-  \renewcommand{\section}[1]{
-    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
-  }
-  \begin{textblock}{3.6}(1.5, 4.33)
-  \begin{flushright}
-  \obeycr
-}{%
-  \restorecr
-  \end{flushright}
-  \end{textblock}
-  \let\section\oldsection
-}
+  \newcommand{\eduentry}[3]{%
+  #1&\parbox[t]{11.8cm}{%
+    \textbf{#2}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+    }\\}%}
+  % \multicolumn{1}{r}{\footnotesize Thesis}&\parbox[t]{11.8cm}{#5}\\%
+  % \multicolumn{1}{r}{\footnotesize Coursework}&\parbox[t]{11.8cm}{{\footnotesize #6}%
+ % \vspace{\parsep}}\\}
 
-%%%%%%%%%%%%%%%%
+  %
 % Bibliography %
 %%%%%%%%%%%%%%%%
 
@@ -336,7 +333,8 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
 
 
 \DeclareBibliographyDriver{inproceedings}{%
-  \printfield{title}%
+  \parbox[t]{1in}{\printfield{series}\\%
+  \textbf{\printfield{note}}} \parbox[t]{5.1in}{\printfield{title}%
   \newblock%
   \printnames{author}%
   \par%
@@ -348,8 +346,6 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
     \printfield{year}%
     \setunit{\addcomma\space}%
     \printlist{location}%
-    \setunit*{\addcomma\space}%
-    \printfield{note}%
     \newunit%
   }
   \newblock%
@@ -359,25 +355,47 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
     \newunit%
   }
   \par\vspace{0.3\baselineskip}
+  }
 }
 
 \DeclareBibliographyDriver{misc}{%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
-    \printfield{eprint}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
-    \setunit*{\addcomma\space}%
-    \printfield{note}%
-    \newunit%
-  }
+  \parbox[t]{1.2in}{\printfield{note}}%
+  \parbox[t]{4.9in}{\printfield{title}}
+  % \printfield{title}%
+  % \newblock%
+  % \printnames{author}%
+  % \par%
+  % \newblock%
+  % {%
+  %   \footnotesize\addfontfeature{Color=lightgray}\itshape%
+  %   \printfield{eprint}%
+  %   \setunit*{\addcomma\space}%
+  %   \printfield{year}%
+  %   \setunit*{\addcomma\space}%
+  %   \printfield{note}%
+  %   \newunit%
+  % }
   \par\vspace{0.3\baselineskip}
 }
+
+
+% \DeclareBibliographyDriver{misc}{%
+%   \printfield{title}%
+%   \newblock%
+%   \printnames{author}%
+%   \par%
+%   \newblock%
+%   {%
+%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
+%     \printfield{eprint}%
+%     \setunit*{\addcomma\space}%
+%     \printfield{year}%
+%     \setunit*{\addcomma\space}%
+%     \printfield{note}%
+%     \newunit%
+%   }
+%   \par\vspace{0.3\baselineskip}
+% }
 
 \DeclareBibliographyDriver{report}{%
   \printfield{title}%
@@ -440,6 +458,17 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
    \markboth{#1}{#1}
  }
 
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{highlight}
+  {\textbf{#1}}
+  {#1}}
+
  \newcommand{\printbibsection}[3][]{
   \begin{refsection}
      \nocite{*}
@@ -454,7 +483,6 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
      }
   \end{refsection}
  }
-  
 
   
   
@@ -510,5 +538,5 @@ BoldItalicFont=\@cv@fontface-BoldItalic.ttf
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=1in,top=2cm,right=1in,bottom=1in,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}

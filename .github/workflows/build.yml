@@ -1,0 +1,31 @@
+name: Build LaTeX document
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Compile PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: cv.tex
+
+      - name: Create folder and copy cv there
+        run: |
+          mkdir -p ./output && cp ./cv.pdf ./output
+
+      - name: Push to gh-pages
+        if: success() && github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

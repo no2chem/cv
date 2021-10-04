@@ -1,70 +1,885 @@
-@article{frigger2,
-  AUTHOR = {Friggeri, Adrien and Cointet, Jean-Philippe and Latapy, Matthieu, Matthieu},
-  TITLE = {{A Real-World Spreading Experiment in the Blogosphere}},
-  JOURNAL = {{Complex Systems}},
-  PUBLISHER = {Complex Systems Publications, Inc.},
-  VOLUME = {19},
-  NUMBER = {3},
-  YEAR = {2011},
-  URL = {http://hal.inria.fr/inria-00597448}
+@inproceedings {222551,
+author = {Ahmed Khawaja and Joshua Landgraf and Rohith Prakash and \textbf{Michael Wei} and Eric Schkufza and Christopher J. Rossbach},
+title = {Sharing, Protection, and Compatibility for Reconfigurable Fabric with AmorphOS},
+booktitle = {13th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} 18)},
+year = {2018},
+isbn = {978-1-939133-08-3},
+address = {Carlsbad, CA},
+pages = {107--127},
+url = {https://www.usenix.org/conference/osdi18/presentation/khawaja},
+publisher = {{USENIX} Association},
+KEYWORDS = {conference},
+series = {OSDI '18},
+month = oct
 }
 
-@inproceedings{friggeri3,
-  AUTHOR = {Friggeri, Adrien and Chelius, Guillaume},
-  TITLE = {{Biais dans les mesures obtenues par un r{\'e}seau de capteurs sans fil}},
-  BOOKTITLE = {{12{\`e}mes Rencontres Francophones sur les Aspects Algorithmiques de T{\'e}l{\'e}communications (AlgoTel)}},
-  YEAR = {2010},
-  EDITOR = {Maria Gradinariu Potop-Butucaru and Herv{\'e} Rivano},
-  KEYWORDS = {france, conference},
-  ADDRESS = {Belle Dune, France},
-  MONTH = {6},
-  URL = {http://hal.inria.fr/inria-00475921}
+@inproceedings{10.1145/3297858.3304010,
+author = {Schkufza, Eric and Wei, Michael and Rossbach, Christopher J.},
+author+an = {2=highlight},
+title = {Just-In-Time Compilation for Verilog: A New Technique for Improving the FPGA Programming Experience},
+year = {2019},
+isbn = {9781450362405},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3297858.3304010},
+doi = {10.1145/3297858.3304010},
+abstract = {FPGAs offer compelling acceleration opportunities for modern applications. However
+compilation for FPGAs is painfully slow, potentially requiring hours or longer. We
+approach this problem with a solution from the software domain: the use of a JIT.
+Code is executed immediately in a software simulator, and compilation is performed
+in the background. When finished, the code is moved into hardware, and from the user's
+perspective it simply gets faster. We have embodied these ideas in Cascade: the first
+JIT compiler for Verilog. Cascade reduces the time between initiating compilation
+and running code to less than a second, and enables generic printf debugging from
+hardware. Cascade preserves program performance to within 3\texttimes{} in a debugging environment,
+and has minimal effect on a finalized design. Crucially, these properties hold even
+for programs that perform side effects on connected IO devices. A user study demonstrates
+the value to experts and non-experts alike: Cascade encourages more frequent compilation,
+and reduces the time to produce working hardware designs.},
+booktitle = {Proceedings of the Twenty-Fourth International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS 19)},
+pages = {271–286},
+numpages = {16},
+keywords = {verilog, fpga, cascade, just-in-time, compiler, jit},
+location = {Providence, RI, USA},
+series = {ASPLOS '19},
+KEYWORDS = {conference}
+}
+
+@inproceedings{10.1145/3342195.3387518,
+author = {Amit, Nadav and Tai, Amy and Wei, Michael},
+author+an = {3=highlight},
+title = {Don't Shoot down TLB Shootdowns!},
+year = {2020},
+isbn = {9781450368827},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3342195.3387518},
+doi = {10.1145/3342195.3387518},
+abstract = {Translation Lookaside Buffers (TLBs) are critical for building performant virtual
+memory systems. Because most processors do not provide coherence for TLB mappings,
+TLB shootdowns provide a software mechanism that invokes inter-processor interrupts
+(IPLs) to synchronize TLBs. TLB shootdowns are expensive, so recent work has aimed
+to avoid the frequency of shootdowns through techniques such as batching. We show
+that aggressive batching can cause correctness issues and addressing them can obviate
+the benefits of batching. Instead, our work takes a different approach which focuses
+on both improving the performance of TLB shootdowns and carefully selecting where
+to avoid shootdowns. We introduce four general techniques to improve shootdown performance:
+(1) concurrently flush initiator and remote TLBs, (2) early acknowledgement from remote
+cores, (3) cacheline consolidation of kernel data structures to reduce cacheline contention,
+and (4) in-context flushing of userspace entries to address the overheads introduced
+by Spectre and Meltdown mitigations. We also identify that TLB flushing can be avoiding
+when handling copy-on-write (CoW) faults and some TLB shootdowns can be batched in
+certain system calls. Overall, we show that our approach results in significant speedups
+without sacrificing safety and correctness in both microbenchmarks and real-world
+applications.},
+booktitle = {Proceedings of the Fifteenth European Conference on Computer Systems},
+articleno = {35},
+numpages = {14},
+location = {Heraklion, Greece},
+series = {EuroSys '20},
+keywords = {conference},
+note = {Best Paper}
+}
+
+@inproceedings {273800,
+author = {Soujanya Ponnapalli and Aashaka Shah and Souvik Banerjee and Dahlia Malkhi and Amy Tai and Vijay Chidambaram and Michael Wei},
+author+an = {7=highlight},
+title = {RainBlock: Faster Transaction Processing in Public Blockchains},
+booktitle = {2021 {USENIX} Annual Technical Conference ({USENIX} {ATC} 21)},
+year = {2021},
+isbn = {978-1-939133-23-6},
+pages = {333--347},
+url = {https://www.usenix.org/conference/atc21/presentation/ponnapalli},
+publisher = {{USENIX} Association},
+month = jul,
+series = {USENIX ATC '21},
+keywords = {conference},
+}
+
+@inproceedings {273741,
+author = {Amy Tai and Igor Smolyar and Michael Wei and Dan Tsafrir},
+author+an = {3=highlight},
+title = {Optimizing Storage Performance with Calibrated Interrupts},
+booktitle = {15th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} 21)},
+year = {2021},
+isbn = {978-1-939133-22-9},
+pages = {129--145},
+url = {https://www.usenix.org/conference/osdi21/presentation/tai},
+publisher = {{USENIX} Association},
+month = jul,
+series = {OSDI '21},
+keywords = {conference},
+}
+
+@inproceedings{10.1145/3456727.3463776,
+author = {Amit, Nadav and Wei, Michael and Tsafrir, Dan},
+author+an = {2=highlight},
+title = {Dealing with (Some of) the Fallout from Meltdown},
+year = {2021},
+isbn = {9781450383981},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3456727.3463776},
+doi = {10.1145/3456727.3463776},
+abstract = {The meltdown vulnerability allows users to read kernel memory by exploiting a hardware
+flaw in speculative execution. Processor vendors recommend "page table isolation"
+(PTI) as a software fix, but PTI can significantly degrade the performance of system-call-heavy
+programs. Leveraging the fact that 32-bit pointers cannot access 64-bit kernel memory,
+we propose "Shrink", a safe alternative to PTI, which is applicable to programs capable
+of running in 32-bit address spaces. We show that Shrink can restore the performance
+of some workloads, suggest additional potential alternatives, and argue that vendors
+must be more open about hardware flaws to allow developers to design protection schemes
+that are safe and performant.},
+booktitle = {Proceedings of the 14th ACM International Conference on Systems and Storage},
+articleno = {13},
+numpages = {6},
+location = {Haifa, Israel},
+series = {SYSTOR '21},
+keywords = {conference}
+}
+
+@inproceedings{10.1145/3458336.3465293,
+author = {Najafi, Ali and Tai, Amy and Wei, Michael},
+author+an = {3=highlight},
+title = {Systems Research is Running out of Time},
+year = {2021},
+isbn = {9781450384384},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3458336.3465293},
+doi = {10.1145/3458336.3465293},
+abstract = {Most sciences conduct experiments with a thorough understanding of the accuracy and
+precision of the instruments used for making measurements. Time is the most frequently
+used measurement in systems research, yet most of the literature does not consider
+the precision and accuracy of clocks. In this paper, we argue for the importance of
+understanding timekeeping and providing precise and accurate time for general systems
+research.},
+booktitle = {Proceedings of the Workshop on Hot Topics in Operating Systems},
+pages = {65–71},
+numpages = {7},
+location = {Ann Arbor, Michigan},
+series = {HotOS '21},
+keywords = {conference}
 }
 
 
-@inproceedings{friggeri4,
-  AUTHOR = {Friggeri, Adrien and Chelius, Guillaume and Fleury, Eric},
-  TITLE = {{Communaut{\'e}s : Arr{\^e}tons de ne compter que les ar{\^e}tes}},
-  BOOKTITLE = {{13es Rencontres Francophones sur les Aspects Algorithmiques de T{\'e}l{\'e}communications (AlgoTel)}},
-  YEAR = {2011},
-  EDITOR = {Ducourthial, Bertrand and Felber, Pascal},
-  MONTH = {6},
-  KEYWORDS = {france, conference},
-  ADDRESS = {Cap Est{\'e}rel, France},
-  URL = {http://hal.inria.fr/inria-00587942}
+@inproceedings{10.1145/3319647.3325827,
+author = {Novakovic, Stanko and Shan, Yizhou and Kolli, Aasheesh and Cui, Michael and Zhang, Yiying and Eran, Haggai and Pismenny, Boris and Liss, Liran and Wei, Michael and Tsafrir, Dan and Aguilera, Marcos},
+author+an = {9=highlight},
+title = {Storm: A Fast Transactional Dataplane for Remote Data Structures},
+year = {2019},
+isbn = {9781450367493},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3319647.3325827},
+doi = {10.1145/3319647.3325827},
+abstract = {RDMA technology enables a host to access the memory of a remote host without involving
+the remote CPU, improving the performance of distributed in-memory storage systems.
+Previous studies argued that RDMA suffers from scalability issues, because the NIC's
+limited resources are unable to simultaneously cache the state of all the concurrent
+network streams. These concerns led to various software-based proposals to reduce
+the size of this state by trading off performance.We revisit these proposals and show
+that they no longer apply when using newer RDMA NICs in rack-scale environments. In
+particular, we find that one-sided remote memory primitives lead to better performance
+as compared to the previously proposed unreliable datagram and kernel-based stacks.
+Based on this observation, we design and implement Storm, a transactional dataplane
+utilizing one-sided read and write-based RPC primitives. We show that Storm outperforms
+eRPC, FaRM, and LITE by 3.3x, 3.6x, and 17.1x, respectively, on an InfiniBand cluster
+with Mellanox ConnectX-4 NICs.},
+booktitle = {Proceedings of the 12th ACM International Conference on Systems and Storage},
+pages = {97–108},
+numpages = {12},
+keywords = {RDMA, data structures, RPC},
+location = {Haifa, Israel},
+series = {SYSTOR '19},
+note={Best Paper},
+keywords = {conference}
+}
+
+@inproceedings {234862,
+author = {Nadav Amit and Fred Jacobs and Michael Wei},
+author+an = {3=highlight},
+title = {JumpSwitches: Restoring the Performance of Indirect Branches In the Era of Spectre},
+booktitle = {2019 {USENIX} Annual Technical Conference ({USENIX} {ATC} 19)},
+year = {2019},
+isbn = {978-1-939133-03-8},
+address = {Renton, WA},
+pages = {285--300},
+url = {https://www.usenix.org/conference/atc19/presentation/amit},
+publisher = {{USENIX} Association},
+month = jul,
+series = {USENIX ATC '19},
+keywords = {conference}
+}
+
+@inproceedings {215939,
+author = {Nadav Amit and Michael Wei},
+author+an = {2=highlight},
+title = {The Design and Implementation of Hyperupcalls},
+booktitle = {2018 {USENIX} Annual Technical Conference ({USENIX} {ATC} 18)},
+year = {2018},
+isbn = {978-1-931971-44-7},
+address = {Boston, MA},
+pages = {97--112},
+url = {https://www.usenix.org/conference/atc18/presentation/amit},
+publisher = {{USENIX} Association},
+month = jul,
+series = {USENIX ATC '18},
+note={Best Paper},
+keywords = {conference}
+}
+
+@inproceedings {215933,
+author = {Marcos K. Aguilera and Nadav Amit and Irina Calciu and Xavier Deguillard and Jayneel Gandhi and Stanko Novakovi{\'c} and Arun Ramanathan and Pratap Subrahmanyam and Lalith Suresh and Kiran Tati and Rajesh Venkatasubramanian and Michael Wei},
+author+an = {12=highlight},
+title = {Remote regions: a simple abstraction for remote memory},
+booktitle = {2018 {USENIX} Annual Technical Conference ({USENIX} {ATC} 18)},
+year = {2018},
+isbn = {978-1-939133-01-4},
+address = {Boston, MA},
+pages = {775--787},
+url = {https://www.usenix.org/conference/atc18/presentation/aguilera},
+publisher = {{USENIX} Association},
+month = jul,
+series = {USENIX ATC '18},
+keywords = {conference}
+}
+
+@inproceedings {201543,
+author = {Michael Wei and Amy Tai and Christopher J. Rossbach and Ittai Abraham and Maithem Munshed and Medhavi Dhawan and Jim Stabile and Udi Wieder and Scott Fritchie and Steven Swanson and Michael J. Freedman and Dahlia Malkhi},
+author+an = {1=highlight},
+title = {{vCorfu}: A Cloud-Scale Object Store on a Shared Log},
+booktitle = {14th {USENIX} Symposium on Networked Systems Design and Implementation ({NSDI} 17)},
+year = {2017},
+isbn = {978-1-931971-37-9},
+address = {Boston, MA},
+pages = {35--49},
+url = {https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/wei-michael},
+publisher = {{USENIX} Association},
+month = mar,
+series = {NSDI '17},
+keywords = {conference}
+}
+
+@inproceedings {systex,
+author = {Michael Wei and Nadav Amit},
+author+an = {1=highlight},
+title = {Hypercallbacks: A New Mechanism for Trusted, Secure Introspection},
+booktitle = {2nd Workshop on System Software for Trusted Execution (SysTEX 2017)},
+year = {2017},
+isbn = {978-1-931971-44-7},
+address = {Shanghai, CN},
+pages = {97--112},
+url = {https://www.usenix.org/conference/atc18/presentation/amit},
+publisher = {{USENIX} Association},
+month = jul,
+series = {SysTeX '17},
+keywords = {conference}
+}
+
+@inproceedings {196392,
+author = {Michael Wei and Chris Rossbach and Ittai Abraham and Udi Wieder and Steven Swanson and Dahlia Malkhi and Amy Tai},
+author+an = {1=highlight},
+title = {Silver: A Scalable, Distributed, Multi-versioning, Always Growing (Ag) File System},
+booktitle = {8th {USENIX} Workshop on Hot Topics in Storage and File Systems (HotStorage 16)},
+year = {2016},
+address = {Denver, CO},
+url = {https://www.usenix.org/conference/hotstorage16/workshop-program/presentation/wei},
+publisher = {{USENIX} Association},
+series = {HotStorage '16},
+month = jun,
+keywords = {conference}
 }
 
 
-@inproceedings{friggeri5,
-  AUTHOR = {Friggeri, Adrien and Chelius, Guillaume and Fleury, Eric},
-  TITLE = {{Fellows: Crowd-sourcing the evaluation of an overlapping community model based on the cohesion measure}},
-  BOOKTITLE = {{Interdisciplinary Workshop on Information and Decision in Social Networks}},
-  YEAR = {2011},
-  MONTH = {5},
-  NOTE = {31 accept{\'e}/140 soumis +250 participants},
-  ADDRESS = {Cambridge, {\'E}tats-Unis},
-  URL = {http://hal.inria.fr/inria-00597446},
-  KEYWORDS = {workshop}
+@inproceedings {196235,
+author = {Amy Tai and Michael Wei and Michael J. Freedman and Ittai Abraham and Dahlia Malkhi},
+author+an = {2=highlight},
+title = {Replex: A Scalable, Highly Available Multi-Index Data Store},
+booktitle = {2016 {USENIX} Annual Technical Conference ({USENIX} {ATC} 16)},
+year = {2016},
+isbn = {978-1-931971-30-0},
+address = {Denver, CO},
+pages = {337--350},
+url = {https://www.usenix.org/conference/atc16/technical-sessions/presentation/tai},
+publisher = {{USENIX} Association},
+month = jun,
+series = {USENIX ATC '16},
+keywords = {conference},
+note={Best Paper}
 }
 
-@inproceedings{friggeri6,
-  AUTHOR = {Friggeri, Adrien and Chelius, Guillaume and Fleury, Eric},
-  TITLE = {{Egomunities, Exploring Socially Cohesive Person-based Communities}},
-  BOOKTITLE = {{NetSci 2011 The International School and Conference on Network Science}},
-  YEAR = {2011},
-  MONTH = {6},
-  ADDRESS = {Budapest, Hongrie},
-  URL = {http://hal.inria.fr/inria-00597447},
-  KEYWORDS = {conference}
+@inproceedings{appnvm,
+author = {Bjørling, Matias and Wei, Michael and Madsen, Jesper and González, Javier and Swanson, Steven and Bonnet, Philippe},
+author+an = {2=highlight},
+year = {2015},
+month = {03},
+pages = {},
+booktitle = {6th Annual Non-Volatile Memories Workshop 2015 ({NVMW} 2015)},
+address = {San Diego, CA},
+title = {AppNVM: A software-defined, application-driven SSD},
+series = {NVMW '15},
+keywords = {conference}
 }
 
-@techreport{friggeri7,
-  AUTHOR = {Friggeri, Adrien and Fleury, Eric},
-  TITLE = {{Maximizing the Cohesion is NP-hard}},
-  TYPE = {Rapport de recherche},
-  YEAR = {2011},
-  MONTH = {9},
-  INSTITUTION = {INRIA},
-  NUMBER = {RR-7734},
-  URL = {http://hal.inria.fr/inria-00621065}
+@inproceedings{10.1145/3102980.3102987,
+author = {Amit, Nadav and Wei, Michael and Tu, Cheng-Chun},
+author+an = {2=highlight},
+title = {Hypercallbacks: Decoupling Policy Decisions and Execution},
+year = {2017},
+isbn = {9781450350686},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3102980.3102987},
+doi = {10.1145/3102980.3102987},
+booktitle = {Proceedings of the 16th Workshop on Hot Topics in Operating Systems},
+pages = {37–41},
+numpages = {5},
+location = {Whistler, BC, Canada},
+series = {HotOS '17},
+keywords = {conference}
 }
+
+@inproceedings {183965,
+author = {Michael Wei and Matias Bj{\o}rling and Philippe Bonnet and Steven Swanson},
+author+an = {1=highlight},
+title = {I/O Speculation for the Microsecond Era},
+booktitle = {2014 {USENIX} Annual Technical Conference ({USENIX} {ATC} 14)},
+year = {2014},
+isbn = {978-1-931971-10-2},
+address = {Philadelphia, PA},
+pages = {475--481},
+url = {https://www.usenix.org/conference/atc14/technical-sessions/presentation/wei},
+publisher = {{USENIX} Association},
+month = jun,
+series = {USENIX ATC '14},
+keywords = {conference}
+}
+
+@inproceedings{10.1145/2517349.2522732,
+author = {Balakrishnan, Mahesh and Malkhi, Dahlia and Wobber, Ted and Wu, Ming and Prabhakaran, Vijayan and Wei, Michael and Davis, John D. and Rao, Sriram and Zou, Tao and Zuck, Aviad},
+author+an = {6=highlight},
+title = {Tango: Distributed Data Structures over a Shared Log},
+year = {2013},
+isbn = {9781450323888},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2517349.2522732},
+doi = {10.1145/2517349.2522732},
+abstract = {Distributed systems are easier to build than ever with the emergence of new, data-centric
+abstractions for storing and computing over massive datasets. However, similar abstractions
+do not exist for storing and accessing meta-data. To fill this gap, Tango provides
+developers with the abstraction of a replicated, in-memory data structure (such as
+a map or a tree) backed by a shared log. Tango objects are easy to build and use,
+replicating state via simple append and read operations on the shared log instead
+of complex distributed protocols; in the process, they obtain properties such as linearizability,
+persistence and high availability from the shared log. Tango also leverages the shared
+log to enable fast transactions across different objects, allowing applications to
+partition state across machines and scale to the limits of the underlying log without
+sacrificing consistency.},
+booktitle = {Proceedings of the Twenty-Fourth ACM Symposium on Operating Systems Principles},
+pages = {325–340},
+numpages = {16},
+location = {Farminton, Pennsylvania},
+series = {SOSP '13},
+keywords = {conference}
+}
+
+@inproceedings{10.1145/2485732.2485739,
+author = {Wei, Michael and Davis, John D. and Wobber, Ted and Balakrishnan, Mahesh and Malkhi, Dahlia},
+author+an = {1=highlight},
+title = {Beyond Block I/O: Implementing a Distributed Shared Log in Hardware},
+year = {2013},
+isbn = {9781450321167},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2485732.2485739},
+doi = {10.1145/2485732.2485739},
+abstract = {The basic block I/O interface used for interacting with storage devices hasn't changed
+much in 30 years. With the advent of very fast I/O devices based on solid-state memory,
+it becomes increasingly attractive to make many devices directly and concurrently
+available to many clients. However, when multiple clients share media at fine grain,
+retaining data consistency is problematic: SCSI, IDE, and their descendants don't
+offer much help. We propose an interface to networked storage that reduces an existing
+software implementation of a distributed shared log to hardware. Our system achieves
+both scalable throughput and strong consistency, while obtaining significant benefits
+in cost and power over the software implementation.},
+booktitle = {Proceedings of the 6th International Systems and Storage Conference},
+articleno = {21},
+numpages = {11},
+location = {Haifa, Israel},
+series = {SYSTOR '13},
+keywords = {conference}
+}
+
+@INPROCEEDINGS{6547135,
+  author={Mowery, Keaton and Wei, Michael and Kohlbrenner, David and Shacham, Hovav and Swanson, Steven},
+  author+an = {2=highlight},
+  booktitle={2013 IEEE Symposium on Security and Privacy}, 
+  title={Welcome to the Entropics: Boot-Time Entropy in Embedded Devices}, 
+  year={2013},
+  volume={},
+  number={},
+  url = {https://ieeexplore.ieee.org/document/6547135},
+  pages={589-603},
+  doi={10.1109/SP.2013.46},
+  location = {Oakland, CA},
+  series = {IEEE S\&P '13},
+  keywords = {conference}  
+}
+
+@inproceedings {180277,
+author = {Mahesh Balakrishnan and Dahlia Malkhi and Vijayan Prabhakaran and Ted Wobbler and Michael Wei and John D. Davis},
+author+an = {5=highlight},
+title = { {CORFU}: A Shared Log Design for Flash Clusters},
+booktitle = {9th {USENIX} Symposium on Networked Systems Design and Implementation ({NSDI} 12)},
+year = {2012},
+address = {San Jose, CA},
+pages = {1--14},
+url = {https://www.usenix.org/conference/nsdi12/technical-sessions/presentation/balakrishnan},
+publisher = {{USENIX} Association},
+month = apr,
+series = {NSDI '12},
+keywords = {conference}  
+}
+
+@inproceedings{10.5555/1960475.1960483,
+author = {Wei, Michael and Grupp, Laura M. and Spada, Frederick E. and Swanson, Steven},
+author+an = {1=highlight},
+title = {Reliably Erasing Data from Flash-Based Solid State Drives},
+year = {2011},
+isbn = {9781931971829},
+publisher = {USENIX Association},
+address = {USA},
+abstract = {Reliably erasing data from storage media (sanitizing the media) is a critical component
+of secure data management. While sanitizing entire disks and individual files is well-understood
+for hard drives, flash-based solid state disks have a very different internal architecture,
+so it is unclear whether hard drive techniques will work for SSDs as well.We empirically
+evaluate the effectiveness of hard drive-oriented techniques and of the SSDs' built-in
+sanitization commands by extracting raw data from the SSD's flash chips after applying
+these techniques and commands. Our results lead to three conclusions: First, built-in
+commands are effective, but manufacturers sometimes implement them incorrectly. Second,
+overwriting the entire visible address space of an SSD twice is usually, but not always,
+sufficient to sanitize the drive. Third, none of the existing hard drive-oriented
+techniques for individual file sanitization are effective on SSDs.This third conclusion
+leads us to develop flash translation layer extensions that exploit the details of
+flash memory's behavior to efficiently support file sanitization. Overall, we find
+that reliable SSD sanitization requires built-in, verifiable sanitize operations.},
+booktitle = {Proceedings of the 9th USENIX Conference on File and Stroage Technologies},
+pages = {8},
+numpages = {1},
+location = {San Jose, California},
+series = {FAST'11},
+keywords = {conference}  
+}
+
+@inproceedings{10.1145/1878431.1878433,
+author = {Agarwal, Yuvraj and Balaji, Bharathan and Gupta, Rajesh and Lyles, Jacob and Wei, Michael and Weng, Thomas},
+author+an = {5=highlight},
+title = {Occupancy-Driven Energy Management for Smart Building Automation},
+year = {2010},
+isbn = {9781450304580},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1878431.1878433},
+doi = {10.1145/1878431.1878433},
+booktitle = {Proceedings of the 2nd ACM Workshop on Embedded Sensing Systems for Energy-Efficiency in Building},
+pages = {1–6},
+numpages = {6},
+keywords = {wireless sensor network, HVAC control system, occupancy detection system},
+location = {Zurich, Switzerland},
+series = {BuildSys'10},
+keywords = {conference}  
+}
+
+@misc{US20190236229A1,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2019},
+ month=aug,
+ note = {US20190236229A1},
+ keywords={patent}
+}
+
+@misc{US20190235892A1,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2019},
+ month=aug,
+ note = {US20190235892A1},
+ keywords={patent}
+}
+
+
+@misc{US11003471B2,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2021},
+ month=may,
+ note = {US11003471B2},
+ keywords={patent}
+}
+
+
+@misc{US20190236231A1,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2019},
+ month=aug,
+ note = {US20190236231A1},
+ keywords={patent}
+}
+
+@misc{US20190235893A1,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2019},
+ month=aug,
+ note = {US20190235893A1},
+ keywords={patent}
+}
+
+
+@misc{US20190236230A1,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2019},
+ month=aug,
+ note = {US20190236230A1},
+ keywords={patent}
+}
+
+
+
+@misc{US11003472B2,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2021},
+ month=may,
+ note = {US11003472B2},
+ keywords={patent}
+}
+
+@misc{US10997338B2,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2021},
+ month=may,
+ note = {US10997338B2},
+ keywords={patent}
+}
+
+
+@misc{US10990730B2,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2021},
+ month=may,
+ note = {US10990730B2},
+ keywords={patent}
+}
+
+@misc{US10885247B2,
+ title={Just-in-time hardware for field programmable gate arrays},
+ author={Eric Schkufza and Michael Wei},
+ author+an = {2=highlight},
+ year={2021},
+ month=may,
+ note = {US10990730B2},
+ keywords={patent}
+}
+
+@misc{US10599835B2,
+ title={32-bit address space containment to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2020},
+ month=march,
+ note = {US10599835B2},
+ keywords={patent}
+}
+
+@misc{US20190243966A1,
+ title={Dynamic binary translation to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2020},
+ month=nov,
+ note = {US20190243966A1},
+ keywords={patent}
+}
+
+@misc{US20190243990A1,
+ title={Separate cores to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2019},
+ month=aug,
+ note = {US20190243990A1},
+ keywords={patent}
+}
+
+@misc{US20190243990A1,
+ title={Dynamic binary translation to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2020},
+ month=nov,
+ note = {US10824717B2},
+ keywords={patent}
+}
+
+@misc{US10878085B2,
+ title={Compilation-time checks to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2020},
+ month=dec,
+ note = {US10878085B2},
+ keywords={patent}
+}
+
+
+@misc{US20190243965A1,
+ title={Compilation-time checks to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2019},
+ month=aug,
+ note = {US20190243965A1},
+ keywords={patent}
+}
+@misc{US20190243776A1,
+ title={32-bit address space containment to secure processes from speculative rogue cache loads},
+ author={Nadav Amit, Dan Tsafrir, Michael Wei},
+ year={2019},
+ month=aug,
+ note = {US20190243776A1},
+ keywords={patent}
+}
+@misc{US10642792B2,
+ title={Distributed transaction conflict resolution},
+ year={2020},
+ month=july,
+ note = {US10642792B2},
+ keywords={patent}
+}
+
+
+@misc{US20180276234A1,
+ title={Distributed transaction conflict resolution},
+ year={2018},
+ month=sept,
+ note = {US20180276234A1},
+ keywords={patent}
+}
+
+
+@misc{US10877881B2,
+ title={In-place garbage collection of a sharded, replicated distributed state machine},
+ year={2020},
+ month=dec,
+ note = {US10877881B2},
+ keywords={patent}
+}
+
+@misc{US10649981B2,
+ title={Direct access to object state in a shared log},
+ year={2020},
+ month=may,
+ note = {US10649981B2},
+ keywords={patent}
+}
+
+@misc{US20190129982A1,
+ title={Just-in-time multi-indexed tables in a shared log},
+ year={2019},
+ month=may,
+ note = {US20190129982A1},
+ keywords={patent}
+}
+
+@misc{US10635541B2,
+ title={Fine-grained conflict resolution in a shared log},
+ year={2020},
+ month=may,
+ note = {US10635541B2},
+ keywords={patent}
+}
+
+@misc{US20190065327A1,
+ title={Efficient versioned object management},
+ year={2019},
+ month=feb,
+ note = {US20190065327A1},
+ keywords={patent}
+}
+
+@misc{US11055184B2,
+ title={In-place garbage collection of a sharded, replicated distributed state machine},
+ year={2021},
+ month=may,
+ note = {US11055184B2},
+ keywords={patent}
+}
+
+@misc{US10834255B1,
+ title={Target injection safe method for inlining large call tables},
+ year={2020},
+ month=nov,
+ note = {US10834255B1},
+ keywords={patent}
+}
+
+@misc{US11016767B2,
+ title={Target injection safe method for inlining instance-dependent calls},
+ year={2020},
+ month=may,
+ note = {US11016767B2},
+ keywords={patent}
+}
+
+@misc{US10871974B1,
+ title={Target injection safe method for inlining registration calls},
+ year={2020},
+ month=dec,
+ note = {US10871974B1},
+ keywords={patent}
+}
+
+@misc{US10908912B1,
+ title={Target injection safe method for dynamically inlining branch predictions},
+ year={2021},
+ month=feb,
+ note = {US10908912B1},
+ keywords={patent}
+}
+
+@misc{US11068422B1,
+ title={Software-controlled interrupts for {I/O} devices},
+ year={2021},
+ month=jul,
+ note = {US11068422B1},
+ keywords={patent}
+}
+
+@misc{US10545742B2,
+ title={Annotation-driven framework for generating state machine updates},
+ year={2021},
+ month=jul,
+ note = {US10545742B2},
+ keywords={patent}
+}
+
+@misc{US10819611B2,
+ title={Dynamic timeout-based fault detection},
+ year={2020},
+ month=oct,
+ note = {US10819611B2},
+ keywords={patent}
+}
+
+@misc{US10574571B2,
+ title={Method for transparently logging and replicating distributed services},
+ year={2020},
+ month=feb,
+ note = {US10574571B2},
+ keywords={patent}
+}
+
+@misc{US10706005B2,
+ title={File system interface for remote direct memory access},
+ year={2020},
+ month=jul,
+ note = {US10706005B2},
+ keywords={patent}
+}
+
+@misc{US20210026785A1,
+ title={Enforcing code integrity using a trusted computing base},
+ year={2021},
+ month=jan,
+ note = {US20210026785A1},
+ keywords={patent}
+}
+
+@misc{US20180321963A1,
+ title={Safe execution of virtual machine callbacks in a hypervisor},
+ year={2018},
+ month=nov,
+ note = {US20180321963A1},
+ keywords={patent}
+}
+@article{10.1145/3139645.3139658,
+
+author = {Wei, Michael and Dhawan, Medhavi and Johal, Gurprit and Stabile, Jim and Brajkovic, Vjekoslav and Chang, James and Goyal, Kapil and James, Kevin and Lokhandwala, Zeeshan and Manzanilla, Anny Martinez and Michoud, Roger and Munshed, Maithem and Neginhal, Srinivas and Spirov, Konstantin and Fritchie, Scott and Rossbach, Chris and Abraham, Ittai and Malkhi, Dahlia},
+author+an = { 1=highlight },
+title = {Consistent Clustered Applications with Corfu},
+year = {2017},
+issue_date = {August 2017},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {51},
+number = {1},
+issn = {0163-5980},
+url = {https://doi.org/10.1145/3139645.3139658},
+doi = {10.1145/3139645.3139658},
+abstract = {The NSX R&D team and VMware Research team are using Corfu to build breakthrough, auto-configurable,
+auto-managed clustering management tools.},
+journal = {SIGOPS Oper. Syst. Rev.},
+month = sep,
+pages = {78–82},
+numpages = {5},
+keywords = {journal}
+}
+
+
+@article{DBLP:journals/debu/WeiA19,
+  author    = {Michael Wei and
+               Nadav Amit},
+  author+an = { 1=highlight },
+  title     = {Leveraging Hyperupcalls To Bridge The Semantic Gap: An Application
+               Perspective},
+  journal   = {{IEEE} Data Eng. Bull.},
+  volume    = {42},
+  number    = {1},
+  pages     = {22--35},
+  year      = {2019},
+  url       = {http://sites.computer.org/debull/A19mar/p22.pdf},
+  timestamp = {Tue, 10 Mar 2020 16:23:50 +0100},
+  biburl    = {https://dblp.org/rec/journals/debu/WeiA19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  keywords = {journal}
+}
+
+@article{10.1145/2535930,
+author = {Balakrishnan, Mahesh and Malkhi, Dahlia and Davis, John D. and Prabhakaran, Vijayan and Wei, Michael and Wobber, Ted},
+author+an = { 5=highlight },
+title = {CORFU: A Distributed Shared Log},
+year = {2013},
+issue_date = {December 2013},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {31},
+number = {4},
+issn = {0734-2071},
+url = {https://doi.org/10.1145/2535930},
+doi = {10.1145/2535930},
+abstract = {CORFU is a global log which clients can append-to and read-from over a network. Internally,
+CORFU is distributed over a cluster of machines in such a way that there is no single
+I/O bottleneck to either appends or reads. Data is fully replicated for fault tolerance,
+and a modest cluster of about 16--32 machines with SSD drives can sustain 1 million
+4-KByte operations per second.The CORFU log enabled the construction of a variety
+of distributed applications that require strong consistency at high speeds, such as
+databases, transactional key-value stores, replicated state machines, and metadata
+services.},
+journal = {ACM Trans. Comput. Syst.},
+month = dec,
+articleno = {10},
+numpages = {24},
+keywords = {journal}
+}
+
