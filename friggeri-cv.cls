@@ -226,6 +226,13 @@ BoldItalicFont=\@cv@fontface-BoldIt.otf
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
+  \newcommand{\entryempty}[3]{%
+  #1&\parbox[t]{11.8cm}{%
+    \textbf{#2}%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
+    %
+  }\\}
 \newcommand{\courseentry}[5]{%
   #1&\parbox[t]{11.8cm}{%
     \textbf{#2}%
