@@ -416,6 +416,8 @@ BoldItalicFont=\@cv@fontface-BoldIt.otf
     \setunit{\space}%
     \printfield{number}%
     \setunit{\addcomma\space}%
+    \printfield{location}%
+    \setunit{\addcomma\space}%
     \printfield{year}%
     \setunit*{\addcomma\space}%
     \printfield{note}%
